@@ -1,0 +1,10 @@
+select v_name, v_jumin, m_no, v_time, v_confirm 
+from tbl_202005
+WHERE v_area = '제1투표장';
+
+
+select me.m_no, m_name, count(vo.m_no)
+from TBL_202005 vo, TBL_MEMBER_202005 me
+WHERE me.m_no = vo.m_no
+group by me.m_no, m_name
+ORDER BY count(vo.m_no) DESC;
