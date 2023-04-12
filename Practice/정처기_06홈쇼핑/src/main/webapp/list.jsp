@@ -47,7 +47,9 @@
 				String date = rs.getString(5).substring(0,10);
 			%>
 			<tr>
-				<td><%=rs.getInt(1) %></td>
+				<td>
+					<a href="modify.jsp?mod_custno=<%=rs.getInt(1) %>"><%=rs.getInt(1) %></a>
+				</td>
 				<td><%=rs.getString(2) %></td>
 				<td><%=rs.getString(3) %></td>
 				<td><%=rs.getString(4) %></td>

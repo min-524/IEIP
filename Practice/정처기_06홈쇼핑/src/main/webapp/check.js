@@ -30,3 +30,17 @@ function addCheck(){
 	}
 }
 
+function search(){
+	window.location = "list.jsp";
+}
+
+function modify(){
+	alert("수정이 완료되었습니다.");
+	document.frm.submit;
+	return true;
+}
+
+
+
+
+
