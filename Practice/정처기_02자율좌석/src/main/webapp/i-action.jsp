@@ -9,7 +9,7 @@
 	
 	try{
 		String sql = "select * " + 
-					 "from tbl_resv_202108 " +
+					 "from tbl_emp_202108 " +
 					 "WHERE ? = empno";
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, number);

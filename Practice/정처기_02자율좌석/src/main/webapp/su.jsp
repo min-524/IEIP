@@ -51,6 +51,9 @@
 			%>
 		</tr>
 	</table>
+	<div>
+	<button style="margin-left:auto; margin-right:auto" onclick="window.location ='index.jsp'">돌아가기</button>
+	</div>
 </section>
 <jsp:include page="footer.jsp"/>
 </body>
