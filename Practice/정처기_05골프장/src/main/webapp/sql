@@ -1,0 +1,77 @@
+create table tbl_teacher_202201(
+	teacher_code char(8) not null primary key,
+	teacher_name varchar2(15),
+	class_name varchar2(20),
+	class_price number(8),
+	teacher_regist_date varchar2(6)
+)
+
+insert into TBL_TEACHER_202201 values('100', '이초급', '초급반', 100000, '220101');
+insert into TBL_TEACHER_202201 values('200', '김중급', '중급반', 200000, '220102');
+insert into TBL_TEACHER_202201 values('300', '박고급', '고급반', 300000, '220103');
+insert into TBL_TEACHER_202201 values('400', '정심급', '심화반', 400000, '220104');
+
+
+create table tbl_member_202201(
+	c_no char(5) not null primary key,
+	c_name varchar2(15),
+	phone varchar2(11),
+	address varchar2(50),
+	grade varchar2(6)
+)
+
+insert into tbl_member_202201 values('10001', '홍길동', '01011112222', '서울시 강남구', '일반');
+insert into tbl_member_202201 values('10002', '장발장', '01022223333', '성남시 분당구', '일반');
+insert into tbl_member_202201 values('10003', '임꺽정', '01033334444', '대전시 유성구', '일반');
+insert into tbl_member_202201 values('20001', '성춘향', '01044445555', '부산시 서구', 'VIP');
+insert into tbl_member_202201 values('20002', '이몽룡', '01055556666', '대구시 북구', 'VIP');
+
+create table tbl_class_202201(
+	regist_month varchar2(6) not null,
+	c_no char(5) not null, 
+	class_area varchar2(15),
+	tuition number(8),
+	teacher_code char(3),
+	primary key(regist_month, c_no)
+)
+
+drop table tbl_class_202201;
+insert into tbl_class_202201 values('202203', '10001', '서울본원', 100000, '100');
+insert into tbl_class_202201 values('202203', '10002', '성남본원', 100000, '100');
+insert into tbl_class_202201 values('202203', '10003', '대전본원', 200000, '200');
+insert into tbl_class_202201 values('202203', '20001', '부산본원', 150000, '300');
+insert into tbl_class_202201 values('202203', '20002', '대구본원', 200000, '400');
+
+select * from tbl_class_202201;
+
+
+select teacher_code, teacher_name, class_name, class_price, teacher_regist_date from TBL_TEACHER_202201;
+
+create table tbl_artist_201905(
+	artist_id char(4) not null primary key,
+	artist_name varchar2(20), 
+	brith char(9),
+	gender char(8),
+	talent char(1),
+	agency varchar2(30)
+)
+
+
+select cl.regist_month, cl.c_no, me.c_name, te.class_name, cl.class_area, cl.tuition, me.grade 
+from TBL_CLASS_202201 cl, TBL_MEMBER_202201 me, TBL_TEACHER_202201 te
+WHERE me.c_no = cl.c_no AND cl.teacher_code = te.teacher_code;
+
+select cl.teacher_code, class_name, teacher_name, sum(tuition)
+from TBL_CLASS_202201 cl, TBL_TEACHER_202201 te
+WHERE cl.teacher_code = te.teacher_code
+GROUP BY cl.teacher_code, class_name, teacher_name
+ORDER BY teacher_code;
+
+select * from TBL_CLASS_202201;
+
+
+
+
+select cl.regist_month, cl.c_no, me.c_name, te.class_name, cl.class_area, cl.tuition, me.grade 
+from TBL_CLASS_202201 cl, TBL_MEMBER_202201 me, TBL_TEACHER_202201 te 
+WHERE me.c_no = cl.c_no AND cl.teacher_code = te.teacher_code;
