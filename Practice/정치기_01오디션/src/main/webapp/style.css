@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+header{
+	top : 0;
+	position : fixed;
+	left : 0;
+	background-color : blue;
+	color : white;
+	width : 100%;
+	text-align : center;
+	line-height : 20px;
+	height : 20px;
+}
+
+nav{
+	position : fixed;
+	left : 0;
+	top : 20px;
+	line-height : 20px;
+	height : 20px;
+	background-color : gray;
+	width : 100%;
+}
+
+section {
+	position : fixed;
+	top : 40px;
+	width : 100%;
+	height : 100%;
+	background-color : pink;
+	color : black;
+	left : 0;
+	padding : 20px;
+}
+
+section > h2 {
+	text-align : center;	
+}
+
+table{
+	margin-left : auto;
+	margin-right : auto;
+}
+
+footer{
+	position : fixed;
+	bottom : 0;
+	left : 0;
+	width : 0;
+	background-color : blue;
+	color : white;
+	text-align : center;
+	width : 100%;
+}
